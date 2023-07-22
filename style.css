@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  background-color: hsl(235, 18%, 26%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 3em;
+}
+
+img {
+  height: 70vh;
+}
+.left-section {
+  margin-right: 50px;
+  margin-left: 2em;
+}
+ul {
+  padding: 0;
+  list-style-image: url(./assets/images/icon-list.svg);
+}
+li {
+  margin-left: 24px;
+  padding-left: 5px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  transition-duration: 0.2s;
+  background-image: linear-gradient(
+    to right,
+    rgb(221, 119, 136),
+    hsl(4, 100%, 67%)
+  );
+}
+#container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1em;
+  background-color: white;
+  max-width: 800px;
+  border-radius: 25px;
+}
+.right-section img {
+  content: url("./assets/images/illustration-sign-up-desktop.svg");
+}
+@media (max-width: 720px) {
+  body {
+    display: block;
+  }
+  #container {
+    flex-direction: column-reverse;
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+  }
+  .active-placeholder::placeholder {
+    color: hsl(4, 100%, 67%);
+  }
+  .right-section img {
+    content: url("./assets/images/illustration-sign-up-mobile.svg");
+    width: 100% !important;
+  }
+  #success-message {
+    height: 100vh !important;
+    width: 100vw !important;
+    border-radius: 0 !important;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 13px;
+}
+.text-input {
+  height: 45px;
+  margin: 5px 10px 15px;
+  position: relative;
+  border-radius: 10px;
+}
+.labels-flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  position: relative;
+}
+.valid-text {
+  color: red;
+  /* display: none; */
+  animation-name: email-validation;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+  right: 0;
+  display: none;
+  animation-play-state: paused;
+  animation-iteration-count: infinite;
+}
+@keyframes email-validation {
+  0% {
+    right: 0px;
+  }
+  25% {
+    right: 10px;
+  }
+  50% {
+    right: -10px;
+  }
+  75% {
+    right: 10px;
+  }
+  100% {
+    right: 0;
+  }
+}
+.submit-btn {
+  height: 45px;
+  margin: 0 10px;
+  background-color: hsl(234, 29%, 20%);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+#success-message {
+  display: none;
+  height: fit-content;
+  width: 430px;
+  padding: 3em;
+  background-color: white;
+  border-radius: 25px;
+  /* display: none; */
+}
+#success-message button {
+  pointer-events: none;
+}
+#success-message h1 {
+  margin: 10px 0;
+}
+span {
+  font-weight: bold;
+}
